@@ -38,17 +38,18 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
-
 # ssh
 export SSH_KEY_PATH="~/.ssh/rsa_id"
 
-# Example aliases
-alias python="python3"
-
 #Git aliases
 alias 'branch'="git branch -avv --color"
+
+#Docker aliases
+alias killall='docker rm $(docker ps -a -q)'
+alias removeall='docker rmi -f $(docker images -q)'
+alias nukeall='docker rm $(docker ps -a -q) && docker rmi -f $(docker images -q) || docker rmi -f $(docker images -q)'
+#Always misspelling this shit
+alias dicker='docker'
 
 #Filesystem Aliases
 alias ll="ls -lhaG"
@@ -59,10 +60,17 @@ alias .....="cd ../../../.."
 
 #Kubernetes Aliases
 alias k="kubectl"
-alias podz="kubectl get po -w"
-alias servicez="kubectl get svc -w"
+alias po="kubectl get po"
+alias pods="kubectl get po -w"
+alias svc="kubectl get svc"
+alias services="kubectl get svc -w"
+alias contexts="kubectl config get-contexts"
+alias ccontext="kubectl config use-context"
 
-# export DEFAULT_USER=`whoami`if [ /usr/local/bin/kubectl ]; then source <(kubectl completion zsh); fi
+#Misc aliases
+alias python="python3"
+
+# Setting Shell default user text
 prompt_context() {
   if [[ "$USER" != "$DEFAULT_USER" || -n "$SSH_CLIENT" ]]; then
     prompt_segment black default "%(!.%{%F{yellow}%}.)Megalawls"
