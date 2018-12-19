@@ -5,13 +5,19 @@
 module.exports = {
   config: {
 
+    hyperSpotify: {
+      position: 'top', // or 'bottom'
+      margin: 'default', // or 'double' or custom value
+      controlsPosition: 'default', // or 'left' or 'right'
+    },
+
     hyperBorder: {
       borderColors: ['#fc1da7', '#00F3FF'],
       // borderWidth: '8px'
     },
 
     hypercwd: {
-      initialWorkingDirectory: '~/TestFramework/api-qa'
+      initialWorkingDirectory: '~/TestFramework'
     },
 
     overlay: {
@@ -161,6 +167,7 @@ module.exports = {
   plugins: [
     // 'hyperpower',
     'hyper-material-box',
+    'hyper-spotify',
     'hyper-tabs-enhanced',
     'hyperborder',
     'hypercwd',
@@ -170,7 +177,7 @@ module.exports = {
     'hyper-alt-click',
     'hyper-search',
     'hyper-startup',
-    'hyperterm-overlay',
+    // 'hyperterm-overlay',
     'hyper-dark-scrollbar',
   ],
 };
